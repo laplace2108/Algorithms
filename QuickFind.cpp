@@ -1,5 +1,5 @@
-#include <stdio.h>
-#define N 1000
+#include <iostream>
+#define N 9
 
 /*
   Este algoritmo resuelve el problema de la conectividad entre puntos.
@@ -11,7 +11,7 @@
   dos puntos están conectados si y solo si sus valores son iguales.
 */
 
-main()
+int main()
 {
   int i, p, q, t, id[N];
   for (int i = 0; i < N; i++)
@@ -29,9 +29,11 @@ main()
       if (id[i] == t)
       {
         id[i] = id[q];
+        printf("%d %d\n", p, q);
       }
-      printf("%d %d\n", p, q);
     }
   }
   
+  return 0;
+
 }
