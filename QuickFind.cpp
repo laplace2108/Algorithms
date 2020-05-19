@@ -1,5 +1,5 @@
 #include <iostream>
-#define N 9
+#define N 10
 
 /*
   Este algoritmo resuelve el problema de la conectividad entre puntos.
@@ -18,20 +18,13 @@ int main()
   {
     id[i] = i;
   }
-
-  while(scanf("%d %d\n", &p, &q) == 2){
-    if (id[p] == id[q])
-    {
-      continue;
-    }
+  
+  while(scanf("%d %d\n", &p, &q) == 2)
+  {
+    if (id[p] == id[q]) continue;
     for (t = id[p], i = 0; i < N; i++)
-    {
-      if (id[i] == t)
-      {
-        id[i] = id[q];
-        printf("%d %d\n", p, q);
-      }
-    }
+      if(id[i]== t) id[i] = id[q];
+    printf("%d %d\n", p, q);
   }
   
   return 0;
