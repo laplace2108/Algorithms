@@ -1,5 +1,6 @@
 #include <iostream>
 #define N 9
+using namespace std;
 
 /*
   Este algoritmo resuelve el problema de la conectividad entre puntos.
@@ -13,7 +14,7 @@
 
 int main()
 {
-  int i, p, q, j, id[N];
+  int i, p, q, j, id[N], count;
   for (int i = 0; i < N; i++)
   {
     id[i] = i;
@@ -21,11 +22,18 @@ int main()
 
   while(scanf("%d %d\n", &p, &q) == 2){
 
-    for (i = p; i != id[i]; i = id[i]);
-    for (j = q; j != id[j]; j = id[j]);
+    count = 0;
+
+    for (i = p; i != id[i]; count++, i = id[i]);
+    for (j = q; j != id[j]; count++, j = id[j]);
     if(i == j) continue;
     id[i] = j;
-    printf("%d %d\n", p, q);
+    
+    for (int  i = 0; i < N; i++){
+      cout << id[i] << " "; 
+    }
+    cout << endl;
+    cout << count << endl;
   }
   
   return 0;

@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 #define N 10
 
 /*
@@ -13,7 +14,7 @@
 
 int main()
 {
-  int i, p, q, t, id[N];
+  int i, p, q, t, id[N], count;
   for (int i = 0; i < N; i++)
   {
     id[i] = i;
@@ -21,10 +22,23 @@ int main()
   
   while(scanf("%d %d\n", &p, &q) == 2)
   {
-    if (id[p] == id[q]) continue;
-    for (t = id[p], i = 0; i < N; i++)
-      if(id[i]== t) id[i] = id[q];
-    printf("%d %d\n", p, q);
+    count = 0;
+    if (id[p] == id[q]){
+      count++;
+      continue;
+    }
+    for (t = id[p], i = 0; i < N; i++){
+      if(id[i]== t){
+        id[i] = id[q];
+        count++;
+      }
+    }
+    for (int  i = 0; i < N; i++){
+      cout << id[i] << " "; 
+    }
+    cout << endl;
+    cout << count << endl;
+    
   }
   
   return 0;
